@@ -3,6 +3,11 @@
       // Your Client ID can be retrieved from your project in the Google
       // Developer Console, https://console.developers.google.com
       var CLIENT_ID = '182266680014-lkfkkr8g2j4mr8r3aq63v46j73vej1di.apps.googleusercontent.com';
+	  if ( window.location.host == "localhost:8000") {
+		  CLIENT_ID  = '182266680014-lkfkkr8g2j4mr8r3aq63v46j73vej1di.apps.googleusercontent.com';
+	  } else if ( window.location.host == "lxkarthi.github.io") {
+		  CLIENT_ID = '182266680014-ui6o0uthgq9rovjulskdrqn96ai26q9k.apps.googleusercontent.com';
+	  }
 
       var SCOPES = ["https://www.googleapis.com/auth/calendar"];
 
