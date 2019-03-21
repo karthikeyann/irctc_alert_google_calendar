@@ -2,7 +2,7 @@
 
 Visit this URL to add reminder to your Google Calendar automatically 120 days before. 
 
-http://lxkarthi.github.io/irctc_alert_google_calendar/
+http://karthikeyann.github.io/irctc_alert_google_calendar/
 
 Enter days of travel and add reminders to Google Calendar.
 
