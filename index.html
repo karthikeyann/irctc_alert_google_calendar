@@ -286,6 +286,7 @@
 
 				.on('click', '.submitButton', function () {
 					//$('#datetimepicker0').data("DateTimePicker").date().subtract(120, "days");
+					appendPre("wait for done alert");
 					appendPre("*** calculation before adding ***");
 					$('[id^=datetimepicker]').each(function () {
 						// Your code here
@@ -314,20 +315,20 @@
 					if (id == '') {
 						id = 'primary';
 					}
-					var time = 50; //delay for rate limit of google api
+					var time = 500; //delay for rate limit of google api
 					$('[id^=datetimepicker]').each(function () {
 						// Your code here
 						var ticket_date = $(this).data("DateTimePicker").date();
 						//console.log($(this).data("DateTimePicker").date());
 						if (moment(ticket_date).isValid()) {
 							setTimeout(function () { add1event(ticket_date, id, $("#BeforeDays").val()); }, time);
-							time += 50;
+							time += 500;
 						} else {
 							alert("Date " + ticket_date + " is not valid");
 						}
 
 					});
-					alert('ok');
+					setTimeout(function () { alert('done'); }, time+1000);
 				});
 		});
 	</script>
