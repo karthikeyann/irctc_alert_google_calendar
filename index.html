@@ -272,6 +272,20 @@ $(document).ready(function() {
 		
 		.on('click', '.submitButton', function() {
 			//$('#datetimepicker0').data("DateTimePicker").date().subtract(120, "days");
+	    		       appendPre("*** calculation before adding ***");
+			       $('[id^=datetimepicker]').each(function() {
+				// Your code here
+				var ticket_date= $(this).data("DateTimePicker").date();
+				//console.log($(this).data("DateTimePicker").date());
+				if(moment(ticket_date).isValid()) {
+	 			  var remindDate = moment(ticket_date).subtract($("#BeforeDays").val(),'days');
+	   			  var nextDate = moment(ticket_date).subtract($("#BeforeDays").val(),'days').add(15,'minutes');
+	   			  console.log(ticket_date, " - 120 days = ", remindDate);
+				  appendPre(ticket_date + " - 120 days = " + remindDate);
+				} else {
+					alert("Date " + ticket_date + " is not valid");
+				}
+				});
 			if(!alertResponse()) {
 				return;
 			}
