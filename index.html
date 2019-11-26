@@ -2,309 +2,341 @@
 <html>
 
 <head>
-<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-<meta content="utf-8" http-equiv="encoding">
-  <!-- ... -->
-  <script type="text/javascript" src="./bower_components/jquery/dist/jquery.min.js"></script>
-  <script type="text/javascript" src="./bower_components/moment/min/moment.min.js"></script>
-  <script type="text/javascript" src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="./bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
-  <script type="text/javascript" src="./js/googleAPIs.js" ></script>
-  <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
-  <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="./bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
-<title> IRCTC reminder creator 	</title>
-  </head>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<!-- ... -->
+	<script type="text/javascript" src="./bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="./bower_components/moment/min/moment.min.js"></script>
+	<script type="text/javascript" src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript"
+		src="./bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+	<script type="text/javascript" src="./js/googleAPIs.js"></script>
+	<script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
+	<link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet"
+		href="./bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+	<title> IRCTC reminder creator </title>
+</head>
 
 
 <body>
 
-<!----------  JUMBOTRON ---------->
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="jumbotron well">
-				<h2>
-					IRCTC reminder creator
-				</h2>
-				<p>
-					This little app lets you create reminders in google calendar for IRCTC ticket bookings. (Normal bookings to remind before 120 days)
-				</p>
-				<p>Authorize using google account, choose calender, add respective travel dates, Click 'Add Reminder'</p>
-				<h5>(TODO: non-active features, Tatkal reminder alerts also)</h5>
-				<p>
-					<a class="btn btn-primary btn-large" href="#">Learn more</a>
-				</p>
-				<a href="https://github.com/lxkarthi"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-
-<!----------  OPTIONS ---------->	
-				<form role="form" id="surveyForm" method="post"  >
-		<div class="col-md-2">
-			<div class="btn-group btn-group-vertical">
-				 <h4>not active now</h4>
-				<div class="checkbox">
-					<label>
-						<input type="checkbox" /> Add  Monday if Tuesday is leave.
-					</label>
-				</div> 
-				<div class="checkbox">
-					<label>
-						<input type="checkbox" /> Add  Friday if Thursday is leave.
-					</label>
-				</div>
-				<div class="checkbox">
-					<label>
-						<input type="checkbox" />  Restrict travel to once a month.
-					</label>
-				</div>
-				<div class="form-group">
-					<label for="daysbefore">
-						Days before
-					</label>
-					<input class="form-control" id="BeforeDays" type="number" max="365" min="0" step="1" value=120 data-bind="value:BeforeDays" />
+	<!----------  JUMBOTRON ---------->
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="jumbotron well">
+					<h2>
+						IRCTC reminder creator
+					</h2>
+					<p>
+						This little app lets you create reminders in google calendar for IRCTC ticket bookings. (Normal
+						bookings to remind before 120 days)
+					</p>
+					<p>Authorize using google account, choose calender, add respective travel dates, Click 'Add
+						Reminder'</p>
+					<h5>(TODO: non-active features, Tatkal reminder alerts also)</h5>
+					<p>
+						<a class="btn btn-primary btn-large" href="#">Learn more</a>
+					</p>
+					<a href="https://github.com/karthikeyann"><img style="position: absolute; top: 0; right: 0; border: 0;"
+							src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67"
+							alt="Fork me on GitHub"
+							data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
 				</div>
 			</div>
 		</div>
-		
-		
-<!----------  DATES ---------->
-		<div class="col-md-8">
+		<div class="row">
+
+			<!----------  OPTIONS ---------->
+			<form role="form" id="surveyForm" method="post">
+				<div class="col-md-2">
+					<div class="btn-group btn-group-vertical">
+						<h4>not active now</h4>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" /> Add Monday if Tuesday is leave.
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" /> Add Friday if Thursday is leave.
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" /> Restrict travel to once a month.
+							</label>
+						</div>
+						<div class="form-group">
+							<label for="daysbefore">
+								Days before
+							</label>
+							<input class="form-control" id="BeforeDays" type="number" max="365" min="0" step="1"
+								value=120 data-bind="value:BeforeDays" />
+						</div>
+					</div>
+				</div>
 
 
-   <div class="form-group" id="datetimegroup0">
-   <div class="row" >
-	<div class="col-sm-11">
-		<div class="form-group">
-            <div class='input-group date' id='datetimepicker0' >
-                <input type='text' class="form-control" />
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-            </div>
-        </div>
-	  </div>
-	   <div class="col-sm-1">
-	   <button type="button" class="btn btn-default removeButton hide"  data-type="minus" data-field="quant[1]">
-                <span class="glyphicon glyphicon-minus"></span>
-              </button>
-	</div>
-	</div>
-  </div>
-		
-   <div class="form-group" id="datetimegroup1">
-   <div class="row" >
-	<div class="col-sm-11">
-		<div class="form-group">
-            <div class='input-group date' id='datetimepicker1'>
-                <input type='text' class="form-control"  value=""/>
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-            </div>
-        </div>
-	  </div>
-	   <div class="col-sm-1">
-	   <button type="button" class="btn btn-default removeButton hide"  data-type="minus" data-field="quant[1]">
-                <span class="glyphicon glyphicon-minus"></span>
-              </button>
-	</div>
-	</div>
-  </div>
+				<!----------  DATES ---------->
+				<div class="col-md-8">
 
-		    <!-- The option field template containing an option field and a Remove button -->
 
-   <div class="form-group hide" id="optionTemplate">
-   <div class="row" >
-	<div class="col-sm-11">
-		<div class="form-group">
-            <div class='input-group date' id='template_datetimepicker'>
-                <input type='text' class="form-control" />
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-            </div>
-        </div>
-	  </div>
-	   <div class="col-sm-1">
-	   <button type="button" class="btn btn-default removeButton"  data-type="minus" data-field="quant[1]">
-                <span class="glyphicon glyphicon-minus"></span>
-              </button>
-	</div>
-	</div>
-  </div>
-	
-		<div class="form-group"> <center>
-		<button type="button" class="btn btn-default addButton" data-type="plus" data-field="quant[1]">
-                  <span class="glyphicon glyphicon-plus"></span>
-              </button></center>
-		</div>
-		
-<!----------  OTHER REGULAR OPTIONS ---------->
-		<div class="checkbox hide">
-					<label>
-						<input type="checkbox" /> Check me out
-					</label>
-				</div> 
-				<button type="submit" class="btn btn-default submitButton">
-					Add Reminder
-				</button>
+					<div class="form-group" id="datetimegroup0">
+						<div class="row">
+							<div class="col-sm-11">
+								<div class="form-group">
+									<div class='input-group date' id='datetimepicker0'>
+										<input type='text' class="form-control" />
+										<span class="input-group-addon">
+											<span class="glyphicon glyphicon-calendar"></span>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-1">
+								<button type="button" class="btn btn-default removeButton hide" data-type="minus"
+									data-field="quant[1]">
+									<span class="glyphicon glyphicon-minus"></span>
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group" id="datetimegroup1">
+						<div class="row">
+							<div class="col-sm-11">
+								<div class="form-group">
+									<div class='input-group date' id='datetimepicker1'>
+										<input type='text' class="form-control" value="" />
+										<span class="input-group-addon">
+											<span class="glyphicon glyphicon-calendar"></span>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-1">
+								<button type="button" class="btn btn-default removeButton hide" data-type="minus"
+									data-field="quant[1]">
+									<span class="glyphicon glyphicon-minus"></span>
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- The option field template containing an option field and a Remove button -->
+
+					<div class="form-group hide" id="optionTemplate">
+						<div class="row">
+							<div class="col-sm-11">
+								<div class="form-group">
+									<div class='input-group date' id='template_datetimepicker'>
+										<input type='text' class="form-control" />
+										<span class="input-group-addon">
+											<span class="glyphicon glyphicon-calendar"></span>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-1">
+								<button type="button" class="btn btn-default removeButton" data-type="minus"
+									data-field="quant[1]">
+									<span class="glyphicon glyphicon-minus"></span>
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<center>
+							<button type="button" class="btn btn-default addButton" data-type="plus"
+								data-field="quant[1]">
+								<span class="glyphicon glyphicon-plus"></span>
+							</button></center>
+					</div>
+
+					<!----------  OTHER REGULAR OPTIONS ---------->
+					<div class="checkbox hide">
+						<label>
+							<input type="checkbox" /> Check me out
+						</label>
+					</div>
+					<button type="submit" class="btn btn-default submitButton">
+						Add Reminder
+					</button>
 			</form>
 		</div>
 		<div class="col-md-2">
-			 <div id="authorize-div" style="display: none">
-				  <span>Authorize access to Google Calendar API</span>
-				  <!--Button for the user to click to initiate auth sequence -->
-				  <button id="authorize-button" onclick="handleAuthClick(event)">
+			<div id="authorize-div" style="display: none">
+				<span>Authorize access to Google Calendar API</span>
+				<!--Button for the user to click to initiate auth sequence -->
+				<button id="authorize-button" onclick="handleAuthClick(event)">
 					Authorize
-				  </button>
+				</button>
 			</div>
-			 <div class="form-group">
+			<div class="form-group">
 				<label for="sel1">Calendar list:</label>
 				<select class="form-control" id="user_calendar_list">
-				<!--- <option>1</option> -->
-			  </select>
+					<!--- <option>1</option> -->
+				</select>
 			</div>
-			<pre id="output"></pre>
+			<pre id="output"></pre><br>
+			<div id="sidebar"></div>
 		</div>
 	</div>
-</div>
+	</div>
 
 
-<script type="text/javascript">
-    $(function () {
-		$('#template_datetimepicker').datetimepicker({
-					enabledHours: [8, 11]
+	<script type="text/javascript">
+		$(function () {
+			$('#template_datetimepicker').datetimepicker({
+				enabledHours: [8, 11]
+			});
+			$('#datetimepicker0').datetimepicker();
+			$('#datetimepicker1').datetimepicker({
+				useCurrent: false, //Important! See issue #1075
+				enabledHours: [8, 11]
+			});
+			$('#datetimepicker0').data("DateTimePicker").date(moment({ hour: 8 }));
+			$('#datetimepicker1').data("DateTimePicker").clear();
+			$('#datetimepicker0').on("dp.change", function (e) {
+				//$('#datetimepicker1').data("DateTimePicker").minDate(e.date);
+				var $next_item = $(this).parent().parent().parent().parent().next().find('.date');
+				$next_item.data("DateTimePicker").minDate(e.date.subtract(1, "minutes"));
+			});
+			$('#datetimepicker1').on("dp.change", function (e) {
+				var $next_item = $(this).parent().parent().parent().parent().next().find('.date');
+				$next_item.data("DateTimePicker").minDate(e.date);
+			});
 		});
-		$('#datetimepicker0').datetimepicker();
-        $('#datetimepicker1').datetimepicker({
-            useCurrent: false, //Important! See issue #1075
-			enabledHours: [8, 11]
-        });
-		$('#datetimepicker0').data("DateTimePicker").date(moment({hour: 8}));
-		$('#datetimepicker1').data("DateTimePicker").clear();
-		$('#datetimepicker0').on("dp.change", function (e) {
-			//$('#datetimepicker1').data("DateTimePicker").minDate(e.date);
-			var $next_item = $(this).parent().parent().parent().parent().next().find('.date');
-			$next_item.data("DateTimePicker").minDate(e.date.subtract(1,"minutes"));
-			});
-		$('#datetimepicker1').on("dp.change", function (e) {
-			var $next_item = $(this).parent().parent().parent().parent().next().find('.date');
-			$next_item.data("DateTimePicker").minDate(e.date);
-			});
-    });
-	
-</script>
 
-<script>
-$(document).ready(function() {
-    // The maximum number of options
-    var MAX_OPTIONS = 5;
-	var num = 2;
-	
-	$('#surveyForm').submit(function(ev){ev.preventDefault();});
+	</script>
 
-    $('#surveyForm')
-        
-        // Add button click handler
-        .on('click', '.addButton', function() {
-            var $template = $('#optionTemplate'),
-                $clone    = $template
-                                .clone()
-                                .removeClass('hide')
-                                .insertBefore($template),
-                $option   = $clone.find('[name="option[]"]');
-				$clone.attr('id', 'datetimegroup'+ num.toString() );
-				
-				$clone.find('.input-group').attr('id', 'datetimepicker'+ num.toString() );
-				$('#datetimepicker'+ num.toString()).datetimepicker({
-					enabledHours: [8, 11],
-					useCurrent: false //Important! See issue #1075
-				});
-				
-				var $prev_item = $('#datetimepicker'+ num.toString()).parent().parent().parent().parent().prev().find('.date');
-				$('#datetimepicker'+ num.toString()).data("DateTimePicker").minDate($prev_item.date);
-				$('#datetimepicker'+ num.toString()).on("dp.change", function (e) {
-					//console.log($(this));
-					var $next_item = $(this).parent().parent().parent().parent().next().find('.date');
-					//console.log($next_item);
-					$next_item.data("DateTimePicker").minDate(e.date);
+	<script>
+		$(document).ready(function () {
+			// The maximum number of options
+			var MAX_OPTIONS = 5;
+			var num = 2;
+
+			$('#surveyForm').submit(function (ev) { ev.preventDefault(); });
+
+			$('#surveyForm')
+
+				// Add button click handler
+				.on('click', '.addButton', function () {
+					var $template = $('#optionTemplate'),
+						$clone = $template
+							.clone()
+							.removeClass('hide')
+							.insertBefore($template),
+						$option = $clone.find('[name="option[]"]');
+					$clone.attr('id', 'datetimegroup' + num.toString());
+
+					$clone.find('.input-group').attr('id', 'datetimepicker' + num.toString());
+					$('#datetimepicker' + num.toString()).datetimepicker({
+						enabledHours: [8, 11],
+						useCurrent: false //Important! See issue #1075
 					});
-				num=num+1;
-        })
 
-        // Remove button click handler
-        .on('click', '.removeButton', function() {
-            var $row    = $(this).parents('.form-group'),
-                $option = $row.find('[name="option[]"]');
-				
-			$row.find('.date').data("DateTimePicker").clear();
-			$row.find('.date').data("DateTimePicker").destroy();
-            // Remove element containing the option
-            $row.remove();
-			//num=num-1;
-        })
+					var $prev_item = $('#datetimepicker' + num.toString()).parent().parent().parent().parent().prev().find('.date');
+					$('#datetimepicker' + num.toString()).data("DateTimePicker").minDate($prev_item.date);
+					$('#datetimepicker' + num.toString()).on("dp.change", function (e) {
+						//console.log($(this));
+						var $next_item = $(this).parent().parent().parent().parent().next().find('.date');
+						//console.log($next_item);
+						$next_item.data("DateTimePicker").minDate(e.date);
+					});
+					num = num + 1;
+				})
 
-        // Called after adding new field
-        .on('added.field.fv', function(e, data) {
-            // data.field   --> The field name
-            // data.element --> The new field element
-            // data.options --> The new field options
+				// Remove button click handler
+				.on('click', '.removeButton', function () {
+					var $row = $(this).parents('.form-group'),
+						$option = $row.find('[name="option[]"]');
 
-            if (data.field === 'option[]') {
-                if ($('#surveyForm').find(':visible[name="option[]"]').length >= MAX_OPTIONS) {
-                    $('#surveyForm').find('.addButton').attr('disabled', 'disabled');
-                }
-            }
-        })
+					$row.find('.date').data("DateTimePicker").clear();
+					$row.find('.date').data("DateTimePicker").destroy();
+					// Remove element containing the option
+					$row.remove();
+					//num=num-1;
+				})
 
-        // Called after removing the field
-        .on('removed.field.fv', function(e, data) {
-           if (data.field === 'option[]') {
-                if ($('#surveyForm').find(':visible[name="option[]"]').length < MAX_OPTIONS) {
-                    $('#surveyForm').find('.addButton').removeAttr('disabled');
-                }
-            }
-        })
-		
-		.on('click', '.submitButton', function() {
-			//$('#datetimepicker0').data("DateTimePicker").date().subtract(120, "days");
-			if(!alertResponse()) {
-				return;
-			}
-			var reminderdays = parseInt($("#BeforeDays").val());
-			if (reminderdays >= 0 && reminderdays < 365) {
-			} else {
-				reminderdays = 0;
-				alert('Check number of days to set reminder (0-365)');
-				return;
-			}
-			  var id = $("#user_calendar_list").val();
-			  if (id == '') {
-				  id = 'primary';
-			  }
-			  $('[id^=datetimepicker]').each(function() {
-				// Your code here
-				var ticket_date= $(this).data("DateTimePicker").date();
-				//console.log($(this).data("DateTimePicker").date());
-				if(moment(ticket_date).isValid()) {
-					add1event(ticket_date, id, $("#BeforeDays").val());
-				} else {
-					alert("Date " + ticket_date + " is not valid");
-				}
-				
+				// Called after adding new field
+				.on('added.field.fv', function (e, data) {
+					// data.field   --> The field name
+					// data.element --> The new field element
+					// data.options --> The new field options
+
+					if (data.field === 'option[]') {
+						if ($('#surveyForm').find(':visible[name="option[]"]').length >= MAX_OPTIONS) {
+							$('#surveyForm').find('.addButton').attr('disabled', 'disabled');
+						}
+					}
+				})
+
+				// Called after removing the field
+				.on('removed.field.fv', function (e, data) {
+					if (data.field === 'option[]') {
+						if ($('#surveyForm').find(':visible[name="option[]"]').length < MAX_OPTIONS) {
+							$('#surveyForm').find('.addButton').removeAttr('disabled');
+						}
+					}
+				})
+
+				.on('click', '.submitButton', function () {
+					//$('#datetimepicker0').data("DateTimePicker").date().subtract(120, "days");
+					appendPre("wait for done alert");
+					appendPre("*** calculation before adding ***");
+					$('[id^=datetimepicker]').each(function () {
+						// Your code here
+						var ticket_date = $(this).data("DateTimePicker").date();
+						//console.log($(this).data("DateTimePicker").date());
+						if (moment(ticket_date).isValid()) {
+							var remindDate = moment(ticket_date).subtract($("#BeforeDays").val(), 'days');
+							var nextDate = moment(ticket_date).subtract($("#BeforeDays").val(), 'days').add(15, 'minutes');
+							console.log(ticket_date.format("YYYY-MM-DD"), " - 120 days = ", remindDate.format("YYYY-MM-DD"));
+							appendPre(remindDate.format("YYYY-MM-DD"));
+						} else {
+							alert("Date " + ticket_date + " is not valid");
+						}
+					});
+					if (!alertResponse()) {
+						return;
+					}
+					var reminderdays = parseInt($("#BeforeDays").val());
+					if (reminderdays >= 0 && reminderdays < 365) {
+					} else {
+						reminderdays = 0;
+						alert('Check number of days to set reminder (0-365)');
+						return;
+					}
+					var id = $("#user_calendar_list").val();
+					if (id == '') {
+						id = 'primary';
+					}
+					var time = 500; //delay for rate limit of google api
+					$('[id^=datetimepicker]').each(function () {
+						// Your code here
+						var ticket_date = $(this).data("DateTimePicker").date();
+						//console.log($(this).data("DateTimePicker").date());
+						if (moment(ticket_date).isValid()) {
+							setTimeout(function () { add1event(ticket_date, id, $("#BeforeDays").val()); }, time);
+							time += 500;
+						} else {
+							alert("Date " + ticket_date + " is not valid");
+						}
+
+					});
+					setTimeout(function () { alert('done'); }, time+1000);
 				});
-			alert('ok');
 		});
-});
-</script>
+	</script>
 
 
-<div class="container">
+	<div class="container">
 
-</div>
+	</div>
 </body>
+
 </html>
