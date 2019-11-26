@@ -161,7 +161,7 @@ function add1event(todayDate, id, reminderdays) {
     } else {
       //console.log(todayDate.format() + " reminder link: " + event.htmlLink);
       appendPre('Event created: on ' + remindDate.format());
-      appendLink(todayDate.format() + ":+120=" + remindDate.format(), event.htmlLink);
+      appendLink(todayDate.format("YYYY/MM/DD") + "(-120)=" + remindDate.format("YYYY/MM/DD"), event.htmlLink);
     }
   });
 }
