@@ -294,8 +294,8 @@
 						if (moment(ticket_date).isValid()) {
 							var remindDate = moment(ticket_date).subtract($("#BeforeDays").val(), 'days');
 							var nextDate = moment(ticket_date).subtract($("#BeforeDays").val(), 'days').add(15, 'minutes');
-							console.log(ticket_date.format("YYYY-MM-DD"), " - 120 days = ", remindDate.format());
-							appendPre(ticket_date.format("YYYY-MM-DD") + " - 120 days = " + remindDate.format());
+							console.log(ticket_date.format("YYYY-MM-DD"), " - 120 days = ", remindDate.format("YYYY-MM-DD"));
+							appendPre(remindDate.format("YYYY-MM-DD"));
 						} else {
 							alert("Date " + ticket_date + " is not valid");
 						}
